@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import HeroSlider from "react-slick";
-import axios from 'axios';
+import axios from "axios";
 
 //Arrow components
- import { NextArrow, PrevArrow} from "./Arrows.Component";
+import { NextArrow, PrevArrow } from "./Arrows.Component";
 
 const HeroCarousel = () => {
     const [images, setImages] = useState([]);
+
     useEffect(() => {
         const requestNowPlayingMovies = async () => {
-            const getImages = await axios.get('/movie/now_playing');
-            setImages(getImages.data.results)
-        }
+            const getImages = await axios.get("/movie/now_playing");
+            setImages(getImages.data.results);
+        };
+
         requestNowPlayingMovies();
-    },[])
+    }, []);
 
     const settingsLG = {
         arrows: true,
@@ -24,7 +26,7 @@ const HeroCarousel = () => {
         infinite: true,
         slideToScroll: 1,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow/>
+        prevArrow: <PrevArrow />,
     };
 
     const settings = {
@@ -34,7 +36,7 @@ const HeroCarousel = () => {
         speed: 500,
         slideToScroll: 1,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
+        prevArrow: <PrevArrow />,
     };
 
     return (

@@ -1,6 +1,9 @@
 import React from "react";
 
 const MovieInfo = ({ movie }) => {
+  
+    const genres = movie.genres?.map(({name}) => name).join(", ");
+
     return (
         <>
             <div className="flex flex-col gap-8">
@@ -8,9 +11,9 @@ const MovieInfo = ({ movie }) => {
                     {movie.original_title}
                 </h1>
                 <div className="flex flex-col gap-5 text-white">
-                    <h4>4k ratings</h4>
-                    <h4>English, Hindi, Kannada, Tamil, Telugu</h4>
-                    <h4>{movie.overview}</h4>
+                <h4>4K ratings</h4>
+                <h4>English, Hindi, Tannada, Telugu, Tamil</h4>
+                <h4>{movie.runtime} min • {genres}</h4>
                 </div>
                 <div className="flex items-center gap-3 w-full">
                     <button className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg">
